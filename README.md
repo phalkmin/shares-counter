@@ -1,4 +1,4 @@
-Social Counter (v.1.0.0)
+Social Counter (v.1.0.2)
 
 This simple PHP function allows the user to display the amount of times
 that an URL have been shared on different social networks. Right now it
@@ -22,21 +22,29 @@ page.
 
 The parameters are (in order of usage):
 
+- $url (string): defaults to current url.
+- $echo (bool): if false it will just return the sum as a variable, if true it
+echoes the results. Defaults to true.
 - $facebook (bool): defaults to true.
 - $twitter (bool): defaults to true.
 - $gplus (bool): defaults to true.
 - $linkedin (bool): defaults to true.
-- $url (string): defaults to current url.
+
 
 For example, if you want to remove linkedin from the list, you can:
 
-	<?php sharesCounter(true, true, true, false); ?>
+	<?php sharesCounter('', true, true, true, true, false); ?>
 
 
-To use the code in Wordpress for any specific post, you can simply add (within the loop):
+To use the code in Wordpress for any specific post, you can simply add (within
+the loop):
 
-	<?php sharesCounter(true, true, true, true, get_permalink() ); ?>
+	<?php sharesCounter( get_permalink() ); ?>
 
+
+You can also return the result as a variable instead of echoing the number:
+
+	<?php $variable = sharesCounter('', false); ?>
 
 
 Contributing
